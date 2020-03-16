@@ -1,22 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Banner />
+    <Map /> 
+    <RightSide />
+    <LeftSide />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Banner from './components/Banner.vue'
+import LeftSide from './components/LeftSide.vue'
+import RightSide from "./components/RightSide.vue";
+import Map from "./components/Map.vue"; 
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    Banner,
+    LeftSide,
+    RightSide,
+    Map 
   }
-}
+};
 </script>
 
 <style>
+html,body,#app{
+ height: 100%;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
