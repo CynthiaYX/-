@@ -150,7 +150,7 @@ export default {
   border-radius: 2px;
 }
 .searchbox p {
-  height: 20%;
+  height: 17%;
 }
 .search {
   width: 100%;
@@ -193,6 +193,7 @@ export default {
   border: 1px solid #ccc;
   background-color: rgba(255, 255, 255, 0.15);
   box-shadow:inset 0 1px 1px 1px rgba(0,0,0,.075);
+  padding-left: 10px;
 }
 #membersearch button{
   position: relative;;
