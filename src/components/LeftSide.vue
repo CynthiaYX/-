@@ -190,9 +190,9 @@ export default {
   position:absolute;
   left: 20px;
   height: 24px;
-  border: 1px solid #ccc;
+  border: solid rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.15);
-  box-shadow:inset 0 1px 1px 1px rgba(0,0,0,.075);
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.15);
   padding-left: 10px;
 }
 #membersearch button{
@@ -203,7 +203,7 @@ export default {
   font-size: 12px;
   color: white;
   padding: 5px 15px;
-  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.15);
+  
   border-radius: 3px;
 }
 .card{
