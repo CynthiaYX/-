@@ -2,19 +2,17 @@
   <div class="Banner">
     <div id="header">
       <div id="logo">
-        <a href="#"><!-- <img src="../assets/logo.jpg" alt=""> --></a>
+        <a href="#"></a>
       </div>
       <ul id="nav">
         <li>
-          <div>
-          </div>
-          <a href="src\components\ProjectManager.vue" class="task">任务管理</a>
+          <router-link to="/ProjectManager"> 任务管理</router-link>
         </li>
         <li>
-          <a href="#" class="supervise">作业监督</a>
+          <router-link to="/ProjectManager">作业监督</router-link>
         </li>
         <li>
-          <a href="#" class="collect">多源采集</a>
+          <router-link to="/ProjectManager">多源采集</router-link>
         </li>
         <li>
           <a href="#" target="_blank" class="quit"></a>
@@ -25,7 +23,6 @@
 </template>
 <script>
 export default {
-  name: "Banner"
 };
 </script>
 <style scoped>

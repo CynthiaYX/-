@@ -4,7 +4,6 @@
 <script>
 import { loadModules } from "esri-loader";
 export default {
-  name: "Map",
   mounted() {
     // lazy load the required ArcGIS API for JavaScript modules and CSS
     loadModules(["esri/Map", "esri/views/MapView"], { css: true }).then(
