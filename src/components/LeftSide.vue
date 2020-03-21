@@ -4,7 +4,7 @@
       <div style></div>
       <p>在线天数</p>
     </div>
-    <div id="path" @click="showBox" >
+    <div id="path" @click="showPathBox" >
       <div></div>
       <p>作业点轨迹</p>
     </div>
@@ -12,11 +12,11 @@
       <div></div>
       <p>项目管理</p>
     </div>
-    <div id="member">
+    <div id="member" @click="showMemberBox">
       <div></div>
       <p>人员管理</p>
     </div>
-    <div class="searchbox" v-if="see" >
+    <div class="searchbox" v-if="path" >
       <p>作业点轨迹查询</p>
       <div class="search">
         <date-picker v-model="time" valuetype="format" placeholder="选择日期"></date-picker>
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div class="memberbox" >
+    <div class="memberbox" v-if="member">
       <p>人员管理</p>
       <div id="membersearch">
         <input type="text" placeholder="输入姓名"><button>查询</button>
@@ -52,7 +52,8 @@ import 'vue2-datepicker/locale/zh-cn';
 export default {
   data() {
     return {
-      see: false,
+      path: false,
+      member: false,
       time: null,
     };
   },
@@ -64,8 +65,11 @@ export default {
         this.see = !this.see;
       }
     }, */
-    showBox: function() {
-      this.see = !this.see;
+    showPathBox: function() {
+      this.path = !this.path;
+    },
+    showMemberBox: function() {
+      this.member = !this.member;
     }
   }
 };

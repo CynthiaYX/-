@@ -8,7 +8,7 @@
         <li>
           <div>
           </div>
-          <a href="#" class="task">任务管理</a>
+          <a href="src\components\ProjectManager.vue" class="task">任务管理</a>
         </li>
         <li>
           <a href="#" class="supervise">作业监督</a>
