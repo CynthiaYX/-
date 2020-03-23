@@ -43,7 +43,7 @@ export default {
 }
 .RightSide {
     width: 40%;
-    height: 100%;
+    height: 80%;
     position:absolute;
     top:80px;
     right: 0px;
@@ -57,7 +57,7 @@ export default {
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.15);
   padding: 0px 10px;
   background: rgba(255, 255, 255, 0.85);
-  border-radius: 2px
+  border-radius: 2px;
 }
 button{
   position:relative;

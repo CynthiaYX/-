@@ -16,7 +16,7 @@ export default {
   components: {
     LeftSide,
     RightSide,
-    Map 
+    Map,
   }
 };
 </script>
