@@ -7,6 +7,7 @@
 
 <script>
 import Banner from './components/Banner.vue'
+
 export default {
   name: "App",
   components: {
