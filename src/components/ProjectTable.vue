@@ -2,37 +2,58 @@
   <div class="Table">
     <span></span>
     <h4>任务列表</h4>
+    <!-- todo
+    全键搜索 -->
     <input type="text" placeholder="搜索" />
-    <table>
-      <thead>
-        <tr>
-          <th>序号</th>
-          <th>任务名称</th>
-          <th>提交人</th>
-          <th>提交时间</th>
-          <th>任务状态</th>
-          <th>下载结果</th>
-          <th>备注</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>名称</td>
-          <td>仇宇轩</td>
-          <td>2020/03/23</td>
-          <td>待审核</td>
-          <td>
-            <div></div>
-          </td>
-          <td>无</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="elementTable">
+      <el-table
+        :data="tasklist.slice((currentPage-1)*10,currentPage*10)"
+        stripe
+        height="285px"
+        highlight-current-row=true
+        border = true
+        :row-style="{height:'10px'}"
+        :cell-style="{padding:'0px'}"
+        style="width: 100%"
+        lazy
+      >
+        <el-table-column prop="序号" label="序号" width = "50px" align="center"></el-table-column>
+        <el-table-column prop="任务名称" label="任务名称" width = "200px" align="center"></el-table-column>
+        <el-table-column prop="提交人" label="提交人"  width = "65px" align="center"></el-table-column>
+        <el-table-column prop="提交时间" label="提交时间" width = "85px" align="center"></el-table-column>
+        <el-table-column prop="任务状态" label="任务状态" width = "80px" align="center"></el-table-column>
+        <!-- todo
+        将下载结果的字符串变为超链接，并增加下载按钮 -->
+        <el-table-column prop="下载结果" label="下载结果" width = "80px" align="center"></el-table-column>
+        <el-table-column prop="备注" label="备注" show-overflow-tooltip=true align="center"></el-table-column>
+      </el-table>
+      <el-pagination
+        :current-page.sync="currentPage"
+        :page-size="10"
+        layout="total, prev, pager, next"
+        :total="tasklist.length"
+      ></el-pagination>
+    </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      tasklist: [],
+      currentPage: 1
+    };
+  },
+  mounted() {
+    this.axios
+      .get(
+        "http://58.213.48.104/JNSERVICE/CoordConvertTask.ashx?action=GetTaskList&userid=zs001"
+      )
+      .then(response => {
+        this.tasklist = response.data.result.tasklist;
+      });
+  }
+};
 </script>
 <style scoped>
 * {
@@ -42,7 +63,7 @@ export default {};
 .Table {
   display: inline-block;
   width: 70%;
-  height: 350px;
+  height: 375px;
   position: absolute;
   left: 30px;
   top: 235px;
@@ -65,21 +86,21 @@ h4 {
   position: absolute;
   left: 15px;
 }
-table {
+input {
   position: absolute;
-  top: 55px;
-  left: 20px;
-  border-collapse: collapse;
+  right: 19px;
+  top: 15px;
+  height: 5px;
+  padding: 10px;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+.elementTable{
+  position: absolute;
   width: 95%;
-  color: rgba(0, 0, 0,0.65);
+  bottom: 5px;
+  left: 25px;
 }
-th,
-td {
-  font-size: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 5px 10px;
-}
-td div {
+/* td div {
   position: relative;
   left: 40%;
   height: 20px;
@@ -88,13 +109,5 @@ td div {
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(../assets/下载蓝.png);
-}
-input {
-  position: absolute;
-  right: 10px;
-  top: 15px;
-  height: 5px;
-  padding: 10px;
-  border-color: rgba(0, 0, 0, 0.15);
-}
+} */
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="Home">
     <Map /> 
     <RightSide />
     <LeftSide />
@@ -20,3 +20,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+.Home{
+ height: 100%;
+}
+</style>

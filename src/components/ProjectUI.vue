@@ -2,24 +2,28 @@
   <div class="UI">
     <ul>
       <li id="daishenhe">
-        <h1>数字</h1>
+        <h1>{{undo}}</h1>
         <span></span>
         <p>待审核任务</p>
+        <el-progress  :stroke-width="7" :percentage="Math.round(undo/total*100)" :color=" colorundo "></el-progress>
       </li>
       <li id="daichuli">
-        <h1>数字</h1>
+        <h1>{{todo}}</h1>
         <span></span>
         <p>待处理任务</p>
+        <el-progress  :stroke-width="7" :percentage="Math.round(todo/total*100)" :color=" colortodo "></el-progress>
       </li>
       <li id="yiwancheng">
-        <h1>数字</h1>
+        <h1>{{done}}</h1>
         <span></span>
         <p>已完成任务</p>
+        <el-progress  :stroke-width="7" :percentage="Math.round(done/total*100)" :color=" colordone " ></el-progress>
       </li>
       <li id="yichang">
-        <h1>数字</h1>
+        <h1>{{bug}}</h1>
         <span></span>
-        <p>有异常任务</p>
+        <p>异常任务</p>
+        <el-progress  :stroke-width="7" :percentage="Math.round(bug/total*100)" :color=" colorbug "></el-progress>
       </li>
     </ul>
     <span class="ProjectButton">
@@ -29,7 +33,36 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data(){
+    return{
+      colorundo: "lightgreen",
+      colortodo:"lightblue",
+      colordone:"pink",
+      colorbug:"orange",
+      total: 1,
+      done: 0,
+      bug: 0,
+      reject: 0,
+      undo:0,
+      todo:0,
+    }
+  },
+  mounted() {
+    this.axios
+      .get(
+        "http://58.213.48.104/JNSERVICE/CoordConvertTask.ashx?action=GetTaskList&userid=zs001"
+      )
+      .then(response => {
+        this.total = response.data.result.tasklist.length;
+        this.bug = Number(response.data.result.tjlist[0]["异常"]);
+        this.reject = Number(response.data.result.tjlist[0]["拒绝"]);
+        this.done = Number(response.data.result.tjlist[0]["已完成"]);
+        this.undo = response.data.result.undolist.length;
+        this.todo = this.total-this.bug-this.reject-this.done-this.undo;
+        });
+  }
+};
 </script>
 <style scoped>
 * {
@@ -101,12 +134,13 @@ h1{
   display: inline-block;
   margin-top: 15px;
   position: relative;
-  left: -50px;
+  left: -60px;
+  text-align:left
 }
 p{
   margin-top: 5px;
   position: relative;
-  left: -40px;
+  left: -55px;
 }
 .ProjectButton {
   display: inline-block;
