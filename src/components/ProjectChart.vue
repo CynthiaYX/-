@@ -38,6 +38,16 @@ export default {
         ]
       },
       line:{
+        dataset: {
+          source: []
+        },
+        series: [
+          {
+            type: "line",
+            radius: "45%",
+            selectedMode: "single"
+          }
+        ]
           
       }
     };
@@ -59,8 +69,8 @@ export default {
           { value: this.bug, name: "异常" },
           { value: this.done, name: "已完成" },
           { value: this.undo, name: "待审核" }
-        ];
-        console.log(this.pie);
+        ]
+
       });
   }
 };

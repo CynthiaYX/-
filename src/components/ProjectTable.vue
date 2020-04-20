@@ -2,9 +2,7 @@
   <div class="Table">
     <span></span>
     <h4>任务列表</h4>
-    <!-- todo
-    全键搜索 -->
-    <input type="text" placeholder="搜索" />
+    <input type="text" placeholder="搜索" @keyup.enter="searchHandler" v-model="keyWord"/>
     <div class="elementTable">
       <el-table
         :data="tasklist.slice((currentPage-1)*10,currentPage*10)"
@@ -41,8 +39,18 @@ export default {
   data() {
     return {
       tasklist: [],
-      currentPage: 1
+      currentPage: 1,
+      keyWord:"",
     };
+  },
+  methods:{
+    searchHandler:function() {
+      this.tasklist = this.tasklist.filter(
+        /* includes无法实现完全的模糊查询，如需要使用indexof */
+        tasklists => Object.values(tasklists).includes(this.keyWord)
+      )
+      console.log(this.keyWord);
+    },
   },
   mounted() {
     this.axios
@@ -52,6 +60,7 @@ export default {
       .then(response => {
         this.tasklist = response.data.result.tasklist;
       });
+      
   }
 };
 </script>
