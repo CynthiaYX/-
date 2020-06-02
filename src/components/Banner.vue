@@ -9,12 +9,6 @@
           <router-link to="/ProjectManager"> 任务管理</router-link>
         </li>
         <li>
-          <router-link to="/ProjectManager">作业监督</router-link>
-        </li>
-        <li>
-          <router-link to="/ProjectManager">多源采集</router-link>
-        </li>
-        <li>
           <a href="#" target="_blank" class="quit"></a>
         </li>
       </ul>

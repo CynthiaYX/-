@@ -3,7 +3,7 @@
     <span></span>
     <h4>数据分析</h4>
     <v-chart :options="pie" />
-    <v-chart :options="line" />
+<!--     <v-chart :options="line" /> -->
     
   </div>
 </template>
@@ -81,11 +81,11 @@ export default {
   margin: 0px;
 }
 .Chart {
-  width: 24%;
-  height: 375px;
+  width: 25%;
+  height: 675px;
   position: absolute;
   right: 30px;
-  top: 235px;
+  top: 270px;
   background-color: white;
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.15);
 }

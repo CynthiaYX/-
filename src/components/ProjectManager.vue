@@ -20,7 +20,6 @@ export default {
 </script>
 <style scoped>
     div{
-        height: 100%;
         background-color:  rgba(0, 0, 0, 0.05);
     }
 </style>

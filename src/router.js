@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 // 引入组件
 import Home from "./components/Home.vue";
 import ProjectManager from "./components/ProjectManager.vue";
+import Login from "./components/Login.vue";
 
 // 要告诉 vue 使用 vueRouter
 Vue.use(VueRouter);
@@ -11,6 +12,10 @@ Vue.use(VueRouter);
 const routes = [
     {
         path:"/",
+        component: Login
+    },
+    {
+        path:"/Home",
         component: Home
     },
     {

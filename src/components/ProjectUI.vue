@@ -230,11 +230,11 @@ export default {
 ul {
   position: absolute;
   left: 30px;
-  top: 12%;
+  top: 100px;
   background-color: white;
   display: inline-block;
   list-style-type: none;
-  width: 79%;
+  width: 81%;
   height: 150px;
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.15);
   color: white;
@@ -245,7 +245,7 @@ li {
   left: 0px;
   width: 23%;
   height: 75%;
-  margin: 20px 7px;
+  margin: 20px 10px;
   background-position: center;
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
@@ -288,13 +288,13 @@ h1 {
   display: inline-block;
   margin-top: 15px;
   position: relative;
-  left: -60px;
+  left: -110px;
   text-align: left;
 }
 p {
   margin-top: 5px;
   position: relative;
-  left: -55px;
+  left: -100px;
 }
 .ProjectsButton {
   display: inline-block;
@@ -302,7 +302,7 @@ p {
   height: 110px;
   position: absolute;
   right: 30px;
-  top: 12%;
+  top: 100px;
   background-color: white;
   padding: 20px 0px;
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.15);
